@@ -31,22 +31,27 @@ public class Solution {
         if (target > numbs[len - 1] || target < numbs[0]) {
             return -1;
         }
-        int right = len - 1;
+        int right = len ;
         int left = 0;
 
-        while (left <= right) {
+        while (left < right) {
             int mid = left + (right - left) / 2;
             if (numbs[mid] < target) {
-                left = mid + 1;
+                left = mid+1 ;
             } else if (numbs[mid] > target) {
-                right = mid - 1;
+                right = mid ;      //这里注意,因为查找的为数组中最左边的元素，所以当右边界判定大于或者等于时
+                                   //并不能排除右边界，故有right=mid;
             } else if (numbs[mid] == target) {
-                right = mid - 1;
+                right = mid ;
             }
         }
-        if (right <0 || left >= len || numbs[left] != target)
+        if(numbs[left] != target)
             return -1;
-        return left;
+       return left;
+       //一下代码为while（left <= right）条件下判定
+       /* if (right <0 || left >= len || numbs[left] != target)
+            return -1;
+        return left;*/
     }
 
     //目标值在右边界的索引查找
@@ -61,7 +66,7 @@ public class Solution {
          while(left <= right){
              int mid = left + ( right -left)/2;
              if (numbs[mid] > target){
-                 right =mid - 1;
+                 right =mid -1;
              }else if(numbs[mid] < target){
                  left = mid + 1;
              }else if (numbs[mid] ==target){
@@ -82,8 +87,8 @@ public class Solution {
         Solution solution = new Solution();
 
         //int num = solution.binarySearch(nums2,5);
-        //int num = solution.leftSearch(nums2, 5);
-        int num = solution.rightBoundSearch(nums2, 5);
+        int num = solution.leftSearch(nums2, 5);
+        //int num = solution.rightBoundSearch(nums2, 5);
         System.out.println("查找数的索引为：" + num);
     }
 }
