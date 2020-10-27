@@ -2,6 +2,7 @@ package leetcode704_binary_search;
 
 import java.lang.annotation.Target;
 
+
 public class Solution {
     //方法1:搜索目标值索引，但不强调边界
     public int binarySearch(int[] nums, int target) {
