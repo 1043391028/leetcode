@@ -20,13 +20,14 @@ public class Solution1 {
     }};
 //     方法函数：
         public boolean isValid(String s){
-        //     对于第一个字符为
+        //  首先添加一个无法抵消的字符，最后剩下它，来判断是否正确；
             LinkedList<Character> stack = new LinkedList<Character>() {{
                 add('?');
             }};
             for (Character c : s.toCharArray() ) {
                 if(map.containsKey(c)) stack.add(c);
-                else if(map.get(stack.removeLast()) != c) return false;
+                else if(map.get(stack.removeLast()) != c) return false; // 通过键获得值，
+                                                      // 判断是否符合，也就是当前便利的和栈顶的是否能构成一对括号；
             }
             return stack.size() == 1 ;
         }
