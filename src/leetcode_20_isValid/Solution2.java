@@ -7,6 +7,8 @@ import java.util.LinkedList;
 public class Solution2 {
     public boolean isValid(String s){
         LinkedList<Character> stack = new LinkedList<Character>();
+//         判断字符串为空的情况；
+        if(s == null) return true;
         for (Character c: s.toCharArray()) {
             if(c == '('){
                 stack.push(')');
