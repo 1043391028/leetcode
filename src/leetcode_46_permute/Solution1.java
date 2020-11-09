@@ -5,6 +5,8 @@ package leetcode_46_permute;
 //
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Solution1 {
@@ -17,23 +19,26 @@ public class Solution1 {
         }
 
         boolean[] used = new boolean[len];
-        List<Integer> path = new ArrayList<>();
+        LinkedList<Integer> path = new LinkedList<>();
 
         dfs(nums, len, 0, path, used, res);
         return res;
     }
 
-    void dfs(int [] nums, int len,int depth,List<Integer> path,boolean[] used,List<List<Integer>> list){
+    void dfs(int [] nums, int len, int depth, LinkedList<Integer> path, boolean[] used, List<List<Integer>> list){
         if(depth == len) {
             list.add(new ArrayList<Integer>(path));
             return ;
         }
         for(int i = 0;i < len ; i++) {
-            used[depth] = true;
-            path.add(nums[depth]);
-            dfs(nums, len,depth + 1,path,used,list);
-            used[depth] = false;
-            path.remove(path.size()-1);
+            if(!used[i]) {
+                path.addLast(nums[i]);
+                used[i] = true;
+
+                dfs(nums, len, depth + 1, path, used, list);
+                used[i] = false;
+                path.removeLast();
+            }
         }
     }
 }
