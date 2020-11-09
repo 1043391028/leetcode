@@ -25,7 +25,10 @@ public class Solution1 {
 
     void dfs(int[] array,int index,int lenth,int target,Deque<Integer> path,List<List<Integer>> list){
         if(target == 0){
-            list.add(new ArrayList<>(path));
+            list.add(new ArrayList<>(path));  // 这里注意：不能是 list.add(path);
+//                             在 Java 中，参数传递是 值传递，对象类型变量在传参的过程中，复制的是变量的地址。
+//                                 这些地址被添加到 res 变量，但实际上指向的是同一块内存地址,
+//                            所以需要在 res.add(path); 这里做一次拷贝即可。
             return;
         }
 //   解释一下：这里从排好序的数组下标为 i 的数开始，依次向下遍历，一定要是排好序的，if()语句是为了减少遍历；
