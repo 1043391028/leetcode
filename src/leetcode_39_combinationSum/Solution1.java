@@ -28,7 +28,8 @@ public class Solution1 {
             list.add(new ArrayList<>(path));
             return;
         }
-
+//   解释一下：这里从排好序的数组下标为 i 的数开始，依次向下遍历，一定要是排好序的，if()语句是为了减少遍历；
+//             每次循环都是从当前 下标 i 开始往下查找并添加到序列中，这样就防止了重复；
         for(int i = index; i < lenth; i++){
             if(target - array[i] < 0){
                 break;
