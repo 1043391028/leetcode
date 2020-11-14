@@ -34,7 +34,7 @@ public class Solution1 {
 //            当 count == 0 时，说明窗口中已经含有所有 l 字符；需要排除左边一些 l 中不存在的字符（即那些need[ch]<0）；
 //            达到缩小窗口，直到 l(左边界)字符 = 0；此时再缩小左边界就不满足 count == 0;
               if(count == 0){
-                  while(l <= r && need[l] < 0){
+                  while(l < r && need[s.charAt(l)] < 0){
                       need[s.charAt(l)]++;
                       l++;
                   }
