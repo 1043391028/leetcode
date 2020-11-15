@@ -4,7 +4,7 @@ package leetcode_78_allSubArray;
 //
 //             说明：解集不能包含重复的子集。
 
-//        思路： 递归；
+//        思路： dfs ；（复习此题和lettcode 题90，39，40，46，47 对比）
 
 import java.util.*;
 
