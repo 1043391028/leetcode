@@ -5,6 +5,7 @@ package leetcode_78_allSubArray.leetcode_90_allSubArray2;
 //          说明：解集不能包含重复的子集。
 //   思路：dfs 和78题基本一样，只是多了一步去重（具体解释在题中）
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class Solution1 {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         List<List<Integer>> res = new LinkedList<>();
         if(nums == null || nums.length == 0) return res;
+        Arrays.sort(nums);
         dfs(nums,0,res,new LinkedList<>());
         return res;
     }
