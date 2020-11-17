@@ -16,7 +16,55 @@ package leetcode_79_ifExistWord;
 //      思路： dfs + 回溯；
 
 public class Solution1 {
-    public boolean exist(char[][] board, String word) {
+    int m,n ; // 保存数组横纵坐标长度；
+    String word; // 保存所求数组
+    char board[][]; // 存储给出数组，遍历查找 i,j 位置是否匹配；
+    int[][] move = {{-1,0},{0,1},{1,0},{0,-1}}; // 移动坐标位置；
+    boolean maked[][];
 
+    public boolean exist(char[][] board, String word) {
+//        初始化全局变量参数；
+        this.m = board.length;
+        if(m == 0) return false;
+
+        this.n = board[0].length;
+        maked = new boolean[m][n];
+        this.board = board;
+          this.word = word;
+
+         for(int i = 0;i < m ; i++){
+             for(int j = 0; j < n;j++){
+                 if(dfs(i,j,0)){
+                     return true;
+                 }
+             }
+         }
+             return false;
+    }
+//    构造深度递归函数；
+
+    public boolean dfs(int i,int j,int start){
+           if(start == word.length()-1) {
+               return board[i][j] == word.charAt(start);
+           }
+
+           if(board[i][j] == word.charAt(start)){
+               maked[i][j] = true;
+               for(int k = 0;k < 4;k++){
+                   int newI = i + move[k][0];
+                   int newJ = j + move[k][1];
+                   if(inArea(newI,newJ) && !maked[newI][newJ]){
+                      if(dfs(newI,newJ,start+1)){
+                          return true;
+                      }
+                   }
+               }
+               maked[i][j] = false;
+           }
+           return false;
+    }
+//    判断越界函数；
+    public boolean inArea(int i, int j){
+        return (i >= 0 && i < n && j >= 0 && j < m);
     }
 }
