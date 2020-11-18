@@ -1,4 +1,4 @@
-package leetcode_00BinaryTree._leetccode_101_isSymmetricTree;
+package leetcode_00BinaryTree._leetcode_101_isSymmetricTree;
 
 //     题目： 给定一个二叉树，检查它是否是镜像对称的。
 

@@ -1,10 +1,10 @@
-package leetcode_00BinaryTree._leetccode_101_isSymmetricTree;
+package leetcode_00BinaryTree._leetcode_101_isSymmetricTree;
 
 //     思路：队列实现：
 
 import java.util.LinkedList;
 
-public class solution2 {
+public class Solution2 {
     public class TreeNode {
       int val;
       TreeNode left;
