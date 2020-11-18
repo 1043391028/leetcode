@@ -1,4 +1,4 @@
-package leetcode_00BinaryTree._94_inOrderSearchTree;
+package leetcode_00BinaryTree._094_inOrderSearchTree;
 
 //     题目：给定一个二叉树的根节点 root ，返回它的 中序 遍历。
 
