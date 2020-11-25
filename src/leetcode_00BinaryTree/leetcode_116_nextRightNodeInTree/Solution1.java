@@ -26,6 +26,7 @@ public class Solution1 {
             return;
         curr.next = next;
         dfs(curr.left, curr.right);
+//        把相邻的结点也递归遍历下去
         dfs(curr.right, curr.next == null ? null : curr.next.left);
     }
 }

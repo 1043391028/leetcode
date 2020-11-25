@@ -1,6 +1,7 @@
 package leetcode_00BinaryTree.leetcode_116_nextRightNodeInTree;
 
-//   Dfs(逐渐遍历每个结点的右节点)
+//   Dfs(逐渐遍历每个结点的右节点)相当于从根节点的左子结点找右孩子到底和右子结点找左孩子结点一直到最后一层连接;
+//       效率比方法3高;
 
 public class Solution2 {
     public Node connect(Node root){
