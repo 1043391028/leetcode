@@ -1,4 +1,4 @@
-package leetcode_148_sortList;
+package leetcode_152_maxProduct;
 
 //   思路二：dp(实际上也就是思路一的详细版本)核心思想都是要保存最大值和最小值；
 

@@ -1,4 +1,4 @@
-package leetcode_148_sortList;
+package leetcode_148_sortLIst;
 
 //   题目: 排序链表;
 
@@ -11,28 +11,45 @@ package leetcode_148_sortList;
 //          imin值保存最小值，因为很可能最大值碰到 负值后就变成了最小值，但是还不能丢弃，因为如果出现负值就可能变成最大值；
 
 
-public class Solution1 {
-    public int maxProduct(int[] nums) {
-        if(nums == null || nums.length == 0) return 0;
-//        初始最大值设为最小整数，这样只要遍历数组就会更新最大值；
-        int max = Integer.MIN_VALUE;
-//        初始临时最大最小值设置为 1 ；
-        int imin = 1, imax = 1;
-        for(int i = 0 ; i < nums.length ; i++){
-            //这一步很重要，为了是最大和最小值互换，并且保存下来；
-            if(nums[i] < 0){
-                int temp = imax;
-                imax = imin;
-                imin = temp;
-            }
-//            临时最大值最小值更新
-            imax = Math.max(nums[i]*imax, nums[i]);
-            imin = Math.min(nums[i]*imin,nums[i]);
-//          过程中保存最大值
-            max = Math.max(max,imax);
-        }
+//    注意:思路简单,但是很多细节(代码中标注)
 
-        return max;
+public class Solution1 {
+    public ListNode sortList(ListNode head) {
+//        只剩一个节点或者结点为空就返回该节点即可
+        if(head == null || head.next == null) return head;
+        //  快慢指针,找出中间结点;
+        ListNode slow = head , fast = head.next;
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+//      开始分支, 把中间结点的下一个结点作为右分支的头结点;
+        ListNode Rhead = slow.next;
+        slow.next = null; // 这里一定要置空中间结点下一个结点(即从中间把链表断开成两个)
+        // 往下分成两个链表递归; 但是一定要保存返回的结点,因为下面要合并
+        // 这里注意不能直接用 head 和 Rhead ,因为经历递归函数后就变了;
+        ListNode left = sortList(head);
+        ListNode right = sortList(Rhead);
+
+        return merge(left,right);
+    }
+
+    public ListNode merge(ListNode Lhead,ListNode Rhead){
+        // 合并这里,注意,新建一个头结点(返回),和一个临时头结点(遍历连接下面的结点)
+        ListNode Head = new ListNode(0);
+        ListNode tempHead = Head;
+        while(Lhead != null && Rhead != null){
+            if(Lhead.val > Rhead.val){
+                tempHead.next = Rhead;
+                Rhead = Rhead.next;
+            }else{
+                tempHead.next = Lhead;
+                Lhead = Lhead.next;
+            }
+            tempHead = tempHead.next;
+        }
+        tempHead.next = Lhead == null? Rhead : Lhead;
+        return Head.next;
     }
 
 }
