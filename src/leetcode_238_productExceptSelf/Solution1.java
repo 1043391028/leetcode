@@ -13,7 +13,7 @@ package leetcode_238_productExceptSelf;
 //   进阶：
 //        你可以在常数空间复杂度内完成这个题目吗？（ 出于对空间复杂度分析的目的，输出数组不被视为额外空间。）
 // 思路一:
-//        从前往后遍历数组;一临时int 变量 temp保存下标 i 之前的数乘积;求
+//        两次循环遍历数组;(题中解析)
 public class Solution1 {
     public int[] productExceptSelf(int[] nums) {
         // 判空
