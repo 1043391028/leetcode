@@ -1,4 +1,4 @@
-package leetcode_DFS.leetcode_22_generateParenthesis;
+package leetcode002_DFS.leetcode_22_generateParenthesis;
 
 public class Test {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package leetcode_DFS.leetcode_22_generateParenthesis;
+package leetcode002_DFS.leetcode_22_generateParenthesis;
 
 //   思路2:  动态规划版本;
 //           要确定 n 对 括号, 先确定 n- 1 对,
