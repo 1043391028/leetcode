@@ -1,4 +1,4 @@
-package leetcode_55_mergeDumplicateArray;
+package leetcode_56_mergeDumplicateArray;
 
 //      给出一个区间的集合，请合并所有重叠的区间。
 
