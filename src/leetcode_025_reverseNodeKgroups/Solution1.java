@@ -24,7 +24,7 @@ public class Solution1 {
         while(end.next != null){
             for(int i =0;i<k && end != null;i++) end = end.next;
             if(end == null) break;
-            
+
             ListNode temp = end.next;
             end.next = null;
             ListNode start = pre.next;
