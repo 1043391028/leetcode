@@ -30,29 +30,28 @@ package leetcode_065_isValidNum;
 public class Solution1 {
     public boolean isNumber(String s) {
         if(s == null || s.length() == 0) return false;
-        String newS = s.trim();
-        if(newS.length() == 0) return false;
-        boolean num = false , dot= false, sign = false , exp= false, numAfterE = false;
-        for(int i = 0; i< newS.length();i++){
-            char ch = newS.charAt(i);
-            if(ch == ' '){
-                if(i < newS.length()-1 && newS.charAt(i+1) != ' ' && (num || dot || exp|| sign)) return false;
-            }else if(ch == '.'){
-                if(dot || exp || newS.length() == 1) return false;
+        char[] charArr = s.trim().toCharArray();
+        boolean num = false , dot= false, exp= false, numAfterE = false;
+        int len = charArr.length;
+
+        for(int i = 0; i< len;i++){
+            char ch = charArr[i];
+            if(ch == '.'){
+                if(dot || exp) return false;
                 dot = true;
             }else if(ch == 'e'){
-                if(exp ||!num || (i >0 && !Character.isDigit(newS.charAt(i-1)) )) return false;
+                if(exp || !num) return false;
                 exp = true;
                 numAfterE = false;
             }else if(ch == '-' || ch == '+'){
-                if(i>0 && newS.charAt(i-1)!='e' || newS.charAt(i-1) != ' ') return false;
+                if(i>0 && charArr[i-1]!='e' || charArr[i-1] != ' ') return false;
             }else if(ch >='0' && ch <='9'){
                 num = true;
                 numAfterE = true;
             }else
                 return false;
         }
-        return true;
+        return num && numAfterE;
     }
 
     // 测试;
