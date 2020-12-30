@@ -13,7 +13,8 @@ package leetcode_093_restoreIpAddress;
 // 示例 2：
 //         输入：s = "0000"
 //         输出：["0.0.0.0"]
-//
+//   思路:
+//        dfs;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class Solution1 {
         dfs(s,0,len,4,path,res);
         return res;
     }
-
+    // 递归函数,start表示每一段地址的开始位置(一共四段),length 字符串总的长度;addlength 剩余IP地址段长度;
     public void dfs(String s, int start,int length,int addLength,Deque<String> path,List<String> res){
         if(start == length){
             if(addLength == 0) {
