@@ -22,7 +22,9 @@ public class Solution1 {
     public void searchNode(TreeNode root){
         if(root == null) return;
         searchNode(root.left);
+        // 当遍历当前结点的前一个结点大于当前结点,说明前一个结点位置异常;
         if(root.val < pre.val && preNode == null) preNode = pre;
+        // 已经存在一个异常结点前提下, 当前结点小于前结点,说明当前结点位置异常;
         if(root.val < pre.val && preNode != null) lastNode = root;
         pre = root;
         searchNode(root.right);
