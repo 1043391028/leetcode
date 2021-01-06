@@ -21,7 +21,7 @@ public class Solution1 {
 
     int sum = 0;
     public int sumNumbers(TreeNode root) {
-        if(root == null) return 0;
+        //  if(root == null) return 0;
         dfs(0,root);
         return sum;
     }
