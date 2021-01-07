@@ -12,6 +12,9 @@ package leetcode_143_ReorderList;
 //             除去头结点和尾结点，把中间一部分堪称递归整体；
 //               中间递归整体返回的是外层的尾结点；(具体递归规则代码中介绍)
 //                 用外层头结点连接尾结点outtail，尾结点outtail指向中间部分的头结点subhead；
+//     思路二： 双端队列；
+//     思路三： 存入链表，双指针依次遍历头尾结点；
+//     思路四： 栓指针找到中间结点；分成两部分，然后反转后半部分；依次遍历两个连接；
 public class Solution1 {
     // 结点；
     public class ListNode {
@@ -56,10 +59,10 @@ public class Solution1 {
         // 外层头结点指向外层尾结点；
         head.next = outtail;
         // 暂存当前层的外层尾结点；最后返回到上一层；
-        ListNode curOuttail = outtail.next;
+        ListNode curouttail = outtail.next;
         // 当前层尾结点指向中间头结点；
         outtail.next = subhead;
-        return curOuttail;
+        return curouttail;
     }
 
 }
