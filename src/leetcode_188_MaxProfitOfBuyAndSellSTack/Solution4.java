@@ -27,6 +27,8 @@ public class Solution4 {
         }
         for(int i = 1;i < len;i++){
             for(int j = 1;j <= k;j++){
+                // 下面表示d第 j 次买入和卖出；
+                // dp[j-1][1]表示第 j 次买入，因为买入不算交易次数，所以
                 dp[j-1][1] = Math.max(dp[j-1][1],dp[j-1][0] - prices[i]);
                 dp[j][0] = Math.max(dp[j][0],dp[j-1][1] + prices[i]);
             }
@@ -34,3 +36,29 @@ public class Solution4 {
         return dp[k][0];
     }
 }
+//   简洁版：(其实和思路5一样)
+//     public int maxProfit(int k, int[] prices) {
+//        if(prices == null || prices.length == 0) return 0;
+//        int len = prices.length;
+//        // 下面表示可进行无数次的情况；在思路二中有解释；
+//        if(k >= len/2){
+//            int dp0 = 0, dp1 = -prices[0];
+//            for(int i = 1;i<len;i++){
+//                dp0 = Math.max(dp0,dp1 + prices[i]);
+//                dp1 = Math.max(dp1,dp0 - prices[i]);
+//            }
+//            return dp0; // 最后最大值肯定是未持有股票的情况；
+//        }
+//        int[][] dp = new int[k+1][2];
+//        for(int i =0;i <= k;i++){
+//            dp[i][0] = 0;
+//            dp[i][1] = -prices[0];
+//        }
+//        for(int i = 1;i < len;i++){
+//            for(int j = 1;j <= k;j++){
+//                dp[j][0] = Math.max(dp[j][0],dp[j][1] + prices[i]);
+//                dp[j][1] = Math.max(dp[j][1],dp[j-1][0] - prices[i]);
+//            }
+//        }
+//        return dp[k][0];
+//    }
