@@ -2,6 +2,8 @@ package leetcode_121_BestTimeOfProfit;
 
 //  思路二： dp;动态规划；
 //
+//        注意：可以进行空间优化；在题中标出；
+//           对照leetcode 188 题，可以进行无数次交易的方法；
 
 public class Solution2 {
     public int maxProfit(int[] prices) {
@@ -14,12 +16,14 @@ public class Solution2 {
         dp[0][1] = -prices[0];
         for(int i = 1;i<len;i++){
             // 第 i+1 天不持有股票，两种可能，1. 第 i 天就不持有，2.第 i+1 天卖掉；
-            // dp[i][0] 表示某一天不持有股票，找最大值，实际上就是比较在之前卖和今天卖的较大值，也就是到当天买卖股票收益的最大值；
-            dp[i][0] = Math.max(dp[i-1][0],dp[i-1][1] + prices[i]);
+            // dp[i][0] 表示某一天不持有股票，找最大值，实际上就是比较在当天之前卖和今天卖的较大值，也就是到当天买卖股票收益的最大值；
+            dp[i][0] = Math.max(dp[i-1][0],dp[i-1][1] + prices[i]); // 这里可以空间优化：
+                                                                    // dp[0] = Math.max(dp[0],dp[1]+prices[i]);
             // 第 i+1 天持有股票，两种可能，1. 前面已经买了，2. 当天买的；
-            // 因为dp[i][1] 表示某一天买入，一定是负值，找较大值，实际上就是找一个买入价格更低的一天；
-            dp[i][1] = Math.max(dp[i-1][1], -prices[i]);
+            // 因为dp[i][1] 表示某一天买入，一定是负值，找较大值，实际上就是在当天之前找一个买入价格更低的一天；
+            dp[i][1] = Math.max(dp[i-1][1], -prices[i]);   // 空间优化：
+                                                           // dp[1] = Math.max(dp[1],-prices[i]);
         }
-        return dp[len-1][0];
+        return dp[len-1][0];            // 空间优化 ： return dp[0]; 未持有股票；
     }
 }
