@@ -27,9 +27,10 @@ public class Solution4 {
         }
         for(int i = 1;i < len;i++){
             for(int j = 1;j <= k;j++){
-                // 下面表示d第 j 次买入和卖出；
+                // 下面表示d第 j（1 -> k） 次买入和卖出；
                 // dp[j-1][1]表示第 j 次买入，因为买入不算交易次数，所以
                 dp[j-1][1] = Math.max(dp[j-1][1],dp[j-1][0] - prices[i]);
+                // dp[j][0] 表示第 j 次卖出,卖出状态会改变，所以用dp[j][0]表示，如果卖出状态不变，那么应该是dp[i-1][0];
                 dp[j][0] = Math.max(dp[j][0],dp[j-1][1] + prices[i]);
             }
         }
@@ -56,7 +57,11 @@ public class Solution4 {
 //        }
 //        for(int i = 1;i < len;i++){
 //            for(int j = 1;j <= k;j++){
+                  //  这里的max 中的 dp[j][] 代表的是上一天的状态，因为刚进如循环；
+//                        卖出放在前面，说明最后一天只有卖出状态没有买入状态，
 //                dp[j][0] = Math.max(dp[j][0],dp[j][1] + prices[i]);
+                  // 代表买入状态才会发生改变，从上一个状态转移过来；
+//                    （另外一层理解：只有上一次交易（卖出）过后才能进行买入操作；这里max中的dp[j-1][0]代表的是第i-1天的卖出）
 //                dp[j][1] = Math.max(dp[j][1],dp[j-1][0] - prices[i]);
 //            }
 //        }
