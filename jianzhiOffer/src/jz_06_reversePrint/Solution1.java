@@ -1,4 +1,4 @@
-package letcode_06_reversePrint;
+package jz_06_reversePrint;
 
 //  题目： 从尾到头打印链表；
 //  描述： 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。

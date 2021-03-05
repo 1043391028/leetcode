@@ -1,4 +1,4 @@
-package letcode_06_reversePrint;
+package jz_06_reversePrint;
 
 public class ListNode {
       int val;
