@@ -14,30 +14,20 @@ package lc_921_midAddToValid;
 //        输入："())"
 //        输出：1
 //
+//  思路提示： 遍历字符串，只需要统计最后需要添加的 '(' 个数：right，')' 个数 left;
 
-import com.sun.org.apache.xpath.internal.operations.String;
-
-import java.util.LinkedList;
-import java.util.Queue;
-
-public class Solution1 {
+public class Solution2 {
     public int minAddToMakeValid(String S) {
-        Queue<Character> queue = new LinkedList<>();
         int len = S.length();
-        int ans = 0;
+        int left = 0,right = 0;
         for(int i=0;i<len;i++){
-            char ch = S.charAt(i);
-            if(ch == '(') queue.add(ch);
-            else{
-                if(!queue.isEmpty()){
-                    queue.remove();
-                }else ans++;
+            left += S.charAt(i)=='('?1:-1;
+            // left == -1;说明需要补充‘）’ right++;同时消去'(' left++（变为 0）;
+            if(left == -1){
+                left++;
+                right++;
             }
         }
-        while(!queue.isEmpty()){
-            ans++;
-            queue.remove();
-        }
-        return ans;
+        return left+right;
     }
 }
