@@ -15,7 +15,6 @@ package lc_227_Caculation2;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Stack;
 
 public class Solution1 {
     public int calculate(String s) {
