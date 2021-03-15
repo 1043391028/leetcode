@@ -29,7 +29,7 @@ public class Solution1 {
         //相等直接返回结果；
         if(sum2 == sum1) return 0;
         if(sum1 > sum2) return minOperations(nums2,nums1);
-        // num 数组，存数字 1-6 的个数（也就是小数组可加，大数组可减的数字的个数）
+        // num 数组，存数字 1-6 的个数（也就是小数组可加、大数组可减的数字的个数）
         int[] num = new int[6];
         for(int i=0;i<nums1.length;i++){
             num[6-nums1[i]]++;
