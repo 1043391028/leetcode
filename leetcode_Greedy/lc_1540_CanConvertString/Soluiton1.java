@@ -13,6 +13,7 @@ package lc_1540_CanConvertString;
 //
 //       如果在不超过 k 次操作内可以把字符串 s 转变成 t ，那么请你返回 true ，否则请你返回 false 。
 //
+//  核心思路：遍历字母，需要记录每个字母更换的次数；
 
 public class Soluiton1 {
     public boolean canConvertString(String s, String t, int k) {
@@ -24,8 +25,11 @@ public class Soluiton1 {
         strT = t.toCharArray();
         int res = 0;
         for(int i=0;i<len;i++){
+            //  注意点： s字符串中i字母的位置 和 t字符串i位置的前后关系；
             int div = (strT[i] - strS[i] + 26)%26;
+            // 同位置就不变；
             if(div == 0)  continue;
+            // 将变换的次数+1(题目要求不能前后变换同次数)
             num[div]++;
             if(div + (div-1)*26 >k) return false;
         }
