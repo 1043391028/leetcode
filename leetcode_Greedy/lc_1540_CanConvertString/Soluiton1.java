@@ -18,6 +18,7 @@ package lc_1540_CanConvertString;
 public class Soluiton1 {
     public boolean canConvertString(String s, String t, int k) {
         int len = s.length();
+        if(s.length() != t.length()) return false;
         char[] strS = new char[len];
         char[] strT = new char[len];
         int[] num = new int[26];
@@ -31,7 +32,7 @@ public class Soluiton1 {
             if(div == 0)  continue;
             // 将变换的次数+1(题目要求不能前后变换同次数)
             num[div]++;
-            if(div + (div-1)*26 >k) return false;
+            if(div + (num[div]-1)*26 >k) return false;
         }
         return true;
     }
