@@ -9,7 +9,8 @@ package lc_1463_isValidateBinaryTreeNode;
 //
 //注意：节点没有值，本问题中仅仅使用节点编号。
 //
-//  思路一： 验证入度为 1 的结点数 和入度超过 1 的结点数（此法通不过多个树的情况）不通过；
+//  思路一：(经验证，此方法不行)
+//         验证入度为 1 的结点数 和入度超过 1 的结点数（此法通不过多个树的情况）
 
 public class Solution1 {
     public boolean validateBinaryTreeNodes(int n, int[] leftChild, int[] rightChild) {
