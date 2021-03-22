@@ -33,7 +33,7 @@ public class Solution1 {
 
         for(int i = 0;i < len;i++){
             if(graph[i].length == 0){
-                queue.add(i);
+                queue.offer(i);
             }
             for(int j:graph[i]){
                 Gra.get(i).add(j);
@@ -47,8 +47,8 @@ public class Solution1 {
             res.add(temp);
             Set<Integer> list = reGra.get(temp);
             for(int i : list){
-                Gra.get(temp).remove(i);
-                if(Gra.get(temp).size() == 0) queue.add(i);
+                Gra.get(i).remove(temp);
+                if(Gra.get(i).size() == 0) queue.offer(i);
             }
         }
         Collections.sort(res);
