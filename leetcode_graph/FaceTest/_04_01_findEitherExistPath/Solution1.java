@@ -31,7 +31,6 @@ public class Solution1 {
         for(int num:list.get(start)){
             // 找到返回 true; 找不到继续下一个结点；
             if(DFS(num,target)) return true;
-            else continue;
         }
         // 深度遍历完没找到，返回false;
         return false;
