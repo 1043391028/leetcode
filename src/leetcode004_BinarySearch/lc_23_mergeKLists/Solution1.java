@@ -17,6 +17,8 @@ package leetcode004_BinarySearch.lc_23_mergeKLists;
 //
 //  思路：  分治排序链表；
 
+import java.util.PriorityQueue;
+
 public class Solution1 {
     //  将数组依次分成两个数组，直到数组个数 <= 2(三种情况返回结果);
     public ListNode mergeKLists(ListNode[] lists){
