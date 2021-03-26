@@ -1,6 +1,4 @@
-package leetcode704_binary_search;
-
-import java.lang.annotation.Target;
+package leetcode004_BinarySearch.lc_704_binary_search;
 
 
 public class Solution {

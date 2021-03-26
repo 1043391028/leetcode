@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 //  思路： 广度优先遍历；
 //          设置标志位 flag ; 每层遍历根据标志位 利用 双向链表 LinkedList 对每层结点采用头插和尾插法；
-//               
+//
 
 public class Solution1 {
     public ArrayList<ArrayList<Integer>> zigzagLevelOrder (TreeNode root) {
