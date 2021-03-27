@@ -18,7 +18,8 @@ package leetcode002_DFS.lc_0306_IsAdditiveNum;
 import leetcode_018_sumOfFourNum.Solution;
 
 import java.util.ArrayList;
-import java.util.List;
+//  思路一： 递归 + 回溯；（方法效率没有思路二高）
+//     思路二： 递归（没回溯）；
 
 public class Solution1 {
     public boolean isAdditiveNumber(String num) {
