@@ -15,6 +15,7 @@ public class Solution1 {
         List<String> list = new ArrayList<>();
         int len = S.length();
         if(S == null || len == 0) return null;
+        // 有重复字母，需要转化为数组排序，去重；
         char[] arr = S.toCharArray();
         Arrays.sort(arr);
         boolean[] used = new boolean[len];
