@@ -1,4 +1,4 @@
-package lc_MaxTurbulenceSubarr;
+package lc_0978_MaxTurbulenceSubarr;
 
 //  题目： 最长串流子数组；
 //  描述： 当 A 的子数组 A[i], A[i+1], ..., A[j] 满足下列条件时，我们称其为湍流子数组：
