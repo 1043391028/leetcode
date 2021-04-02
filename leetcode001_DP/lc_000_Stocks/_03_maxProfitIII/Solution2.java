@@ -2,8 +2,10 @@ package lc_000_Stocks._03_maxProfitIII;
 
 // dp（动态规划）;
 //
-// 第一版（定义三维数组）： 效率低；
-//     dp[i][j][k] : i  表示第 i+1 天； j 表示进行几次交易； k 表示股票持有的状态：1 持有，0 不持有；
+// 第一版（定义三维数组）： 效率低，可优化；
+
+//    dp[i][j][k] : i  表示第 i+1 天； j 表示进行几次交易； k 表示股票持有的状态：1 持有，0 不持有；
+
 public class Solution2 {
     public int maxProfit(int[] prices) {
         if(prices == null || prices.length == 0) return 0;
