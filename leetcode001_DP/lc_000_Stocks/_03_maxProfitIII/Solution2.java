@@ -8,7 +8,7 @@ package lc_000_Stocks._03_maxProfitIII;
 
 public class Solution2 {
     public int maxProfit(int[] prices) {
-        if(prices == null || prices.length == 0) return 0;
+        if(prices == null || prices.length < 2) return 0;
         int len = prices.length;
         int[][][] dp = new int[len][3][2];
         // 初始化第一天状态：
