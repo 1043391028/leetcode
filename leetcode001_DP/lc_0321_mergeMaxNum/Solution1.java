@@ -24,7 +24,7 @@ public class Solution1 {
             int[] arr1 = select(nums1,i);
             int[] arr2 = select(nums2,k-i);
             int[] temp = merge(arr1,arr2,k);
-            res = durge(res,temp);
+            res = durge(res,0,temp,0)?res:temp;
         }
         return res;
     }
@@ -43,25 +43,40 @@ public class Solution1 {
     //    对于情况： nums1 ={6,7} , nums2 = {6,0,5} k = 5; 挑出的数是： 6，6，7，0，5；
     //               实际上应该是： 6，7，6，0，5；
     //              即，对于 前几个数相同的情况不能判断；
+//    public int[] merge(int[] nums1, int[] nums2,int len){
+//        int[] res = new int[len];
+//        int index = 0, i= 0, j=0;
+//        while(index<len && i<nums1.length && j<nums2.length){
+//            res[index++] = nums1[i]>nums2[j]?nums1[i++]:nums2[j++];
+//        }
+//        while(index<len){
+//            res[index++] = i == nums1.length?nums2[j++]:nums1[i++];
+//        }
+//        return res;
+//    }
     public int[] merge(int[] nums1, int[] nums2,int len){
         int[] res = new int[len];
         int index = 0, i= 0, j=0;
-        while(index<len && i<nums1.length && j<nums2.length){
-            res[index++] = nums1[i]>nums2[j]?nums1[i++]:nums2[j++];
-        }
-        while(index<len){
-            res[index++] = i == nums1.length?nums2[j++]:nums1[i++];
-        }
+        while(i<nums1.length || j<nums2.length)
+            res[index++] = durge(nums1,i,nums2,j)?nums1[i++]:nums2[j++];
         return res;
     }
 
-    public int[] durge(int[] res,int[] temp){
-        int i = 0, j = 0, len1 = res.length,len2 = temp.length;
+//    public int[] durge(int[] res,int[] temp){
+//        int i = 0, j = 0, len1 = res.length,len2 = temp.length;
+//        while(i<len1 && j<len2 && res[i] == temp[j]){
+//            i++;
+//            j++;
+//        }
+//        return j == len2 || (i<len1 && res[i] > temp[j])?res:temp;
+//    }
+    public boolean durge(int[] res,int i,int[] temp,int j){
+        int len1 = res.length,len2 = temp.length;
         while(i<len1 && j<len2 && res[i] == temp[j]){
             i++;
             j++;
         }
-        return j == len2 || (i<len1 && res[i] > temp[j])?res:temp;
+        return j == len2 || (i<len1 && res[i] > temp[j]);
     }
 
     public static void main(String[] args) {
