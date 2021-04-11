@@ -14,9 +14,11 @@ public class Solution1 {
         // write code here
         ListNode dummy = new ListNode();
         dummy.next = head;
+        // 可优化：不用前置结点也行，把第一个结点和第二个结点之间的结点数定为 k 个；
         ListNode pre = dummy; // 保存删除结点的前一个结点；
         ListNode first = head; //  第一个结点；
         ListNode second = head; // 第二个结点;
+        // 两个结点之间的结点数为： K-1;
         for(int i = 0;i<n;i++){
             first = first.next;
         }
