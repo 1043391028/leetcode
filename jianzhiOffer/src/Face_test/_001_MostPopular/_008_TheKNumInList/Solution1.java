@@ -1,8 +1,6 @@
-package Face_test._001_MostPopular.TheKNumInList;
+package Face_test._001_MostPopular._008_TheKNumInList;
 
 //  题目： 链表中倒数第K个结点；
-
-import Face_test.String_test.reverseKGroup.ListNode;
 
 public class Solution1 {
 
