@@ -24,7 +24,7 @@ public class Solution1 {
                     // 不匹配就找出删除/插入/替换中代价最小的；
                     int m = dp[i][j-1] + ic; // 插入 str1前i个字母变为str2前j-1个，然后再插入一个字母和str2第j个字母相等；
                     int n = dp[i-1][j] + dc; // 删除 str1前i-1个字母变为str2前j个，然后删除第i个；
-                    int p = dp[i-1][j-1] + rc; // 替换 
+                    int p = dp[i-1][j-1] + rc; // 替换
                     dp[i][j] = Math.min(p,Math.min(m,n));
                 }
             }
