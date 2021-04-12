@@ -1,4 +1,4 @@
-package Face_test._001_MostPopular._007_LRU;
+package Face_test._001_MostPopular._007_LRU.LRUCache_01;
 
 //  题目： Lru 缓存机制；
 
@@ -7,11 +7,11 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class LRUCache {
+public class LRUCache_01 {
     private int cap;
     private HashMap<Integer,Integer> map;
 
-    public LRUCache(int capacity) {
+    public LRUCache_01(int capacity) {
         this.cap = capacity;
         map = new LinkedHashMap<Integer,Integer>();
     }
