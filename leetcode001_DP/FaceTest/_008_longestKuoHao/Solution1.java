@@ -7,6 +7,9 @@ package FaceTest._008_longestKuoHao;
 
 //  思路一：
 //         dp;
+// 思路二： 栈；
+//   思路三： 不用额外空间（很巧妙）：
+//            分别从字符串首尾分别各遍历一遍统计'（'和'）' 个数；
 
 public class Solution1 {
     public int longestValidParentheses (String s) {
