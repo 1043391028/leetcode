@@ -21,7 +21,7 @@ public class Solution1 {
             }
             int[] res = new int[count];
             int index = 0;
-            
+
             Stack<Integer> minStack = new Stack<>();
             Stack<Integer> stack = new Stack<>();
             //minStack.push(Integer.MAX_VALUE);
