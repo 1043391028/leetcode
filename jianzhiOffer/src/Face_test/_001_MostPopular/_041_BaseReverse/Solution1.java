@@ -1,4 +1,4 @@
-package src.Face_test._001_MostPopular.lc_041_BaseReverse;
+package src.Face_test._001_MostPopular._041_BaseReverse;
 
 //  题目： 禁止转换；
 //  题目描述： 给定一个十进制数M，以及需要转换的进制数N。将十进制数M转化为N进制数
