@@ -1,4 +1,4 @@
-package leetcode002_DFS.lc_0306_IsAdditiveNum;
+package lc_0306_IsAdditiveNum;
 
 public class Test {
     public static void main(String[] args) {

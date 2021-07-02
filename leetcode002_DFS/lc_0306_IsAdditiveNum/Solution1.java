@@ -1,4 +1,4 @@
-package leetcode002_DFS.lc_0306_IsAdditiveNum;
+package lc_0306_IsAdditiveNum;
 
 //  题目： 累加数；
 //          累加数是一个字符串，组成它的数字可以形成累加序列。

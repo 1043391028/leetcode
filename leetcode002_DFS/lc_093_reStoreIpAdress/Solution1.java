@@ -1,4 +1,4 @@
-package leetcode002_DFS.lc_093_reStoreIpAdress;
+package lc_093_reStoreIpAdress;
 
 //  题目： 复原IP地址；
 //  描述： 给定一个只包含数字的字符串，用以表示一个 IP 地址，返回所有可能从 s 获得的 有效 IP 地址 。
@@ -17,41 +17,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution1 {
+     //  保存结果；
+    List<String> res = new ArrayList<>();
     public List<String> restoreIpAddresses(String s) {
-        int len = s.length();
-        List<String> res = new ArrayList<>();
-        if(len < 4) return res;
-        DFS(s,0,0,new ArrayList<>(),res);
+        DFS(s,new ArrayList<String>(),0);
         return res;
     }
-    // DFS 递归+回溯；
-    public void DFS(String s,int count,int start,List<String> temp,List<String> res){
-        // 出口： start == len && ip 字段数 count为 4；
-        if(start == s.length()){
-            if(count == 4)
-                res.add(String.join(",",temp));
-            return ;
+    //  list保存每次递归的结果； index 代表每次递归入口；
+    public void DFS(String s,ArrayList<String> list,int index){
+        //  递归终止条件；
+        if(index == s.length()){
+            //  必须要判断list是否有4个元素；
+            if(list.size() == 4)
+                res.add(String.join(".",list));
+            return;
         }
-        // 提前判断 i （当前遍历位）是否不符合条件；
-        if(s.length() - start > (4-count)*3 || s.length() - start < 4-count) return;
-        // 每层最多能遍历三位（ip地址段最多3位）；
-        for(int i = 0;i <= 3;i++){
-            // 当前位 i 是否越界；
-            if(start + i >= s.length()) break;
-            // 如果当前遍历位置符合条件（0 ~ 255）之间；
-            if(IsValidNum(s,start,start + i)){
-                temp.add(s.substring(start,start + i + 1));
-                DFS(s,count+1,start+i+1,temp,res);
-                temp.remove(temp.size()-1);
+        //  每次递归最多三层；
+        for(int i = index;i<index+3;i++){
+            // 剪枝判断，不符合提前结束（提高效率）
+            //   1.剩余字符比所剩字段*3还大；2. 所生字符个数还没所剩字段大。
+            if((4-list.size())*3<s.length()-index || 4-list.size()>s.length()-index) return ;
+            //  同样 i(当前遍历位置)不能超过s字符串长度；
+            if(i>=s.length()) return;
+            //  进入递归+回溯；
+            if(isValidNum(s,index,i)){
+                list.add(s.substring(index,i+1));
+                DFS(s,list,i+1);
+                list.remove(list.size()-1);
             }
         }
     }
-    // 判断是否有效当前层起始位置 start ~ 当前遍历位置 end 之间的字符串是否符合条件；
-    public boolean IsValidNum(String s,int start,int end){
+    public boolean isValidNum(String s,int start,int end){
         if(start != end && s.charAt(start) == '0') return false;
         int res = 0;
-        for(int i = start;i<=end;i++){
-            res = res*10 + s.charAt(i) - '0';
+        for(int i=start;i<=end;i++){
+            res = res*10 + s.charAt(i) -'0';
         }
         return res>=0 && res<=255;
     }

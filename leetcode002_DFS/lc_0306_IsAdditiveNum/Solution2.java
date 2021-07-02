@@ -1,4 +1,4 @@
-package leetcode002_DFS.lc_0306_IsAdditiveNum;
+package lc_0306_IsAdditiveNum;
 
 //  思路二： 递归没回溯；
 //        代码种解释；
