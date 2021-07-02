@@ -7,8 +7,12 @@ package src.Face_test._002_NC._034_AllPaths;
 //   思路：
 //         Dp+空间优化；（画图好理解）
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 public class Solution1 {
     public int uniquePaths (int m, int n) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
         int[] dp = new int[n];
         //  初始化
         for(int i = 0;i<n;i++){
@@ -21,5 +25,6 @@ public class Solution1 {
                 dp[j] = dp[j-1]+dp[j];
         }
         return dp[n-1];
+
     }
 }
