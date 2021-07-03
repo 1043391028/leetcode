@@ -9,7 +9,6 @@ package src.Face_test._002_NC._NC054_SumOfThreeNum;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Solution1 {
     public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
