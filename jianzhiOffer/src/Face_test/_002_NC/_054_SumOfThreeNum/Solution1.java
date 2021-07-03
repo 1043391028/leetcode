@@ -1,4 +1,4 @@
-package src.Face_test._002_NC._NC054_SumOfThreeNum;
+package src.Face_test._002_NC._054_SumOfThreeNum;
 
 //  题目： 和为0的三个数集合；
 //  描述：

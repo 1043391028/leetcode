@@ -33,7 +33,7 @@ public class Solution1 {
         }
         for(int i = 0;i<num.length;i++){
             if(visited[i] || i>0 && num[i] == num[i-1] && !visited[i-1]) continue;
-            
+
             visited[i] = true;
             list.add(num[i]);
 
