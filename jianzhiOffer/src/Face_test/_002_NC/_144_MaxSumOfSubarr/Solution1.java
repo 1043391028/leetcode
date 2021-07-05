@@ -13,7 +13,7 @@ package src.Face_test._002_NC._144_MaxSumOfSubarr;
 //         有[],[1],[2],[3],[1,3] 4种选取方式其中[1,3]选取最优，答案为4
 
 //    思路一: 大意就是不能找相邻的元素,找出和最大的子序列;
-//            DP;  类似于偷房间的思路;
+//            DP;  类似于偷房间的思路;(实际上可以优化为一维数组)
 
 public class Solution1 {
     public long subsequence (int n, int[] array) {
