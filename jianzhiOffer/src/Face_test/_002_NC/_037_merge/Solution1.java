@@ -30,13 +30,13 @@ public class Solution1 {
         });
         //  先将第一个元素加入到结果链表；
         res.add(intervals.get(0));
-        for(int i = 1;i<intervals.size();i++){
+        for(int i = 1;i<intervals.size();i++) {
             // 每次遍历将当前遍历元素的左右边界和结果链表中最后一个元素的边界相比（符合条件就合并）
-            if(res.get(res.size()-1).end < intervals.get(i).start){
+            if (res.get(res.size() - 1).end < intervals.get(i).start) {
                 res.add(intervals.get(i));
                 continue;
-            }else if(res.get(res.size()-1).end >= intervals.get(i).start){
-                res.get(res.size()-1).end = Math.max(intervals.get(i).end,res.get(res.size()-1).end);
+            } else if (res.get(res.size() - 1).end >= intervals.get(i).start) {
+                res.get(res.size() - 1).end = Math.max(intervals.get(i).end, res.get(res.size() - 1).end);
             }
         }
         return res;

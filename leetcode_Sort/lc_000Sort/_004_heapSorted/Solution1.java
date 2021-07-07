@@ -1,4 +1,4 @@
-package lc_000Sort;
+package lc_000Sort._004_heapSorted;
 
 //  思路四： 堆排序；
 
@@ -7,7 +7,7 @@ package lc_000Sort;
 //  空间复杂度： O(1);
 //   是否稳定： 否；
 
-public class _004_heapSort {
+public class Solution1 {
     public int[] MySort (int[] arr) {
         //
         if(arr == null || arr.length < 2) return arr;
