@@ -2,10 +2,14 @@ package lc_000Sort;
 
 //  思路四： 堆排序；
 
+//   排序类型： 选择排序；
+//  时间复杂度： O(nlog2N)
+//  空间复杂度： O(1);
+//   是否稳定： 否；
 
-public class Solution4 {
+public class _004_heapSort {
     public int[] MySort (int[] arr) {
-        // write code here
+        //
         if(arr == null || arr.length < 2) return arr;
         int len = arr.length;
         for(int i = 0;i<len;i++){
