@@ -1,4 +1,4 @@
-package lc_000Sort;
+package lc_000Sort._002quickSrot;
 
 //  思路二： 快速排序；
 
