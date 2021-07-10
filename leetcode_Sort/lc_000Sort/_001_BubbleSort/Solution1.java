@@ -1,10 +1,11 @@
-package lc_000Sort;
+package lc_000Sort._001_BubbleSort;
 
 //  题目： 排序；
 //  描述： 给定一个数组，请你编写一个函数，返回该数组排序后的形式。
 
-//  思路一： 冒泡排序；
+//  思路一： (标准)冒泡排序；
 //          O（n） n^2;
+//  思路二： （改进）"鸡尾酒"排序
 
 public class Solution1 {
     public int[] MySort (int[] arr) {
